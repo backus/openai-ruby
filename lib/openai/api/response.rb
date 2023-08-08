@@ -98,6 +98,7 @@ class OpenAI
 
       def wrap_value(value, wrapper)
         return value unless wrapper
+        return if value.nil?
 
         if value.instance_of?(Array)
           value.map { |item| wrapper.new(item) }
@@ -143,8 +144,22 @@ class OpenAI
       class ChatCompletion < Response
         class Choice < Response
           class Message < Response
+            class FunctionCall < Response
+              field :name
+              field :arguments
+
+              def parsed_arguments(symbolize_names: true)
+                JSON.parse(arguments, symbolize_names: symbolize_names)
+              end
+            end
+
             field :role
             field :content
+            field :function_call, wrapper: FunctionCall
+
+            def function_call?
+              !function_call.nil?
+            end
           end
 
           field :index

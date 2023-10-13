@@ -9,7 +9,7 @@ RSpec.describe OpenAI::API, '#audio' do
   context 'when transcribing audio' do
     let(:response_body) do
       {
-        "text": "Imagine the wildest idea that you've ever had, and you're curious about how it might scale to something that's a 100, a 1,000 times bigger. This is a place where you can get to do that."
+        text: "Imagine the wildest idea that you've ever had, and you're curious about how it might scale to something that's a 100, a 1,000 times bigger. This is a place where you can get to do that."
       }
     end
 
@@ -42,7 +42,7 @@ RSpec.describe OpenAI::API, '#audio' do
 
     let(:response_body) do
       {
-        "text": 'Hello, my name is Wolfgang and I come from Germany. Where are you heading today?'
+        text: 'Hello, my name is Wolfgang and I come from Germany. Where are you heading today?'
       }
     end
 

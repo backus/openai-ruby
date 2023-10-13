@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w[lib]
   spec.executables   = []
 
-  spec.required_ruby_version = '>= 2.7'
+  spec.required_ruby_version = '>= 3.2'
 
   spec.add_dependency 'abstract_type', '~> 0.0.7'
   spec.add_dependency 'anima',         '~> 0.3'
@@ -24,5 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'http',          '>= 4.4', '< 6.0'
   spec.add_dependency 'ice_nine',      '~> 0.11.x'
   spec.add_dependency 'memoizable',    '~> 0.4.2'
-  spec.add_dependency 'tiktoken_ruby', '~> 0.0.3'
+  spec.add_dependency 'tiktoken_ruby', '~> 0.0.6'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end

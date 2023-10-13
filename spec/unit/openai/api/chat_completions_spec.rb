@@ -6,34 +6,34 @@ RSpec.describe OpenAI::API, '#chat_completions' do
   let(:resource) { api.chat_completions }
   let(:response_body) do
     {
-      "id": 'chatcmpl-123',
-      "object": 'chat.completion',
-      "created": 1_677_652_288,
-      "choices": [
+      id: 'chatcmpl-123',
+      object: 'chat.completion',
+      created: 1_677_652_288,
+      choices: [
         {
-          "index": 0,
-          "message": {
-            "role": 'assistant',
-            "content": "\n\nHello there, how may I assist you today?"
+          index: 0,
+          message: {
+            role: 'assistant',
+            content: "\n\nHello there, how may I assist you today?"
           },
-          "finish_reason": 'stop'
+          finish_reason: 'stop'
         }
       ],
-      "usage": {
-        "prompt_tokens": 9,
-        "completion_tokens": 12,
-        "total_tokens": 21
+      usage: {
+        prompt_tokens: 9,
+        completion_tokens: 12,
+        total_tokens: 21
       }
     }
   end
 
   let(:completion) do
     messages = [
-      { "text": 'Hello there!', "user": 'customer' },
-      { "text": 'Can you help me with my order?', "user": 'customer' },
-      { "text": 'Sure, what would you like to do?', "user": 'assistant' }
+      { text: 'Hello there!', user: 'customer' },
+      { text: 'Can you help me with my order?', user: 'customer' },
+      { text: 'Sure, what would you like to do?', user: 'assistant' }
     ]
-    resource.create(model: 'text-davinci-002', messages: messages)
+    resource.create(model: 'text-davinci-002', messages:)
   end
 
   it 'can create a chat completion' do
@@ -64,10 +64,10 @@ RSpec.describe OpenAI::API, '#chat_completions' do
   context 'when streaming is enabled' do
     let(:response_chunks) do
       [
-        chunk(role: 'assistant'),
-        chunk(content: 'He'),
-        chunk(content: 'llo,'),
-        chunk(content: ' world'),
+        chunk({ role: 'assistant' }),
+        chunk({ content: 'He' }),
+        chunk({ content: 'llo,' }),
+        chunk({ content: ' world' }),
         chunk({ content: '!' }, finish_reason: 'stop')
       ]
     end
@@ -102,7 +102,7 @@ RSpec.describe OpenAI::API, '#chat_completions' do
         object: 'chat.completion.chunk',
         created: 1_679_780_213,
         model: 'gpt-3.5-turbo-0301',
-        choices: [delta: delta, index: 0, finish_reason: finish_reason]
+        choices: [delta:, index: 0, finish_reason:]
       }
 
       "data: #{JSON.dump(data)}"

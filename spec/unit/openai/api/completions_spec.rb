@@ -7,22 +7,22 @@ RSpec.describe OpenAI::API, '#completions' do
 
   let(:response_body) do
     {
-      "id": 'cmpl-uqkvlQyYK7bGYrRHQ0eXlWi7',
-      "object": 'text_completion',
-      "created": 1_589_478_378,
-      "model": 'text-davinci-003',
-      "choices": [
+      id: 'cmpl-uqkvlQyYK7bGYrRHQ0eXlWi7',
+      object: 'text_completion',
+      created: 1_589_478_378,
+      model: 'text-davinci-003',
+      choices: [
         {
-          "text": "\n\nThis is indeed a test",
-          "index": 0,
-          "logprobs": nil,
-          "finish_reason": 'length'
+          text: "\n\nThis is indeed a test",
+          index: 0,
+          logprobs: nil,
+          finish_reason: 'length'
         }
       ],
-      "usage": {
-        "prompt_tokens": 5,
-        "completion_tokens": 7,
-        "total_tokens": 12
+      usage: {
+        prompt_tokens: 5,
+        completion_tokens: 7,
+        total_tokens: 12
       }
     }
   end
@@ -91,16 +91,16 @@ RSpec.describe OpenAI::API, '#completions' do
 
     def chunk(text, finish_reason: nil)
       data = {
-        "id": 'cmpl-6y5B6Ak8wBk2nKsqVtSlFeJAG1dUM',
-        "object": 'text_completion',
-        "created": 1_679_777_604,
-        "choices": [{
-          "text": text,
-          "index": 0,
-          "logprobs": nil,
-          "finish_reason": finish_reason
+        id: 'cmpl-6y5B6Ak8wBk2nKsqVtSlFeJAG1dUM',
+        object: 'text_completion',
+        created: 1_679_777_604,
+        choices: [{
+          text:,
+          index: 0,
+          logprobs: nil,
+          finish_reason:
         }],
-        "model": 'text-davinci-002'
+        model: 'text-davinci-002'
       }
 
       "data: #{JSON.dump(data)}"

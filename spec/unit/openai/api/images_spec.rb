@@ -40,13 +40,13 @@ RSpec.describe OpenAI::API, '#images' do
 
     let(:response_body) do
       {
-        "created": 1_589_478_378,
-        "data": [
+        created: 1_589_478_378,
+        data: [
           {
-            "url": 'https://...'
+            url: 'https://...'
           },
           {
-            "url": 'https://...'
+            url: 'https://...'
           }
         ]
       }
@@ -90,13 +90,13 @@ RSpec.describe OpenAI::API, '#images' do
   context 'when creating image variations' do
     let(:response_body) do
       {
-        "created": 1_589_478_378,
-        "data": [
+        created: 1_589_478_378,
+        data: [
           {
-            "url": 'https://...'
+            url: 'https://...'
           },
           {
-            "url": 'https://...'
+            url: 'https://...'
           }
         ]
       }

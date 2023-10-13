@@ -7,22 +7,22 @@ RSpec.describe OpenAI do
 
   let(:response_body) do
     {
-      "id": 'cmpl-uqkvlQyYK7bGYrRHQ0eXlWi7',
-      "object": 'text_completion',
-      "created": 1_589_478_378,
-      "model": 'text-davinci-003',
-      "choices": [
+      id: 'cmpl-uqkvlQyYK7bGYrRHQ0eXlWi7',
+      object: 'text_completion',
+      created: 1_589_478_378,
+      model: 'text-davinci-003',
+      choices: [
         {
-          "text": "\n\nThis is indeed a test",
-          "index": 0,
-          "logprobs": nil,
-          "finish_reason": 'length'
+          text: "\n\nThis is indeed a test",
+          index: 0,
+          logprobs: nil,
+          finish_reason: 'length'
         }
       ],
-      "usage": {
-        "prompt_tokens": 5,
-        "completion_tokens": 7,
-        "total_tokens": 12
+      usage: {
+        prompt_tokens: 5,
+        completion_tokens: 7,
+        total_tokens: 12
       }
     }
   end
@@ -42,7 +42,7 @@ RSpec.describe OpenAI do
       OpenAI::API::Client.new(
         'sk-123',
         organization_id: 'org-123',
-        http: http
+        http:
       )
     end
 
@@ -59,11 +59,11 @@ RSpec.describe OpenAI do
   context 'when the request is not 2xx' do
     let(:response_body) do
       {
-        "error": {
-          "message": "You didn't provide an API key.",
-          "type": 'invalid_request_error',
-          "param": nil,
-          "code": nil
+        error: {
+          message: "You didn't provide an API key.",
+          type: 'invalid_request_error',
+          param: nil,
+          code: nil
         }
       }
     end

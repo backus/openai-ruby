@@ -6,22 +6,22 @@ RSpec.describe OpenAI::API, '#embeddings' do
   let(:resource) { api.embeddings }
   let(:response_body) do
     {
-      "object": 'list',
-      "data": [
+      object: 'list',
+      data: [
         {
-          "object": 'embedding',
-          "embedding": [
+          object: 'embedding',
+          embedding: [
             0.0023064255,
             -0.009327292,
             -0.0028842222
           ],
-          "index": 0
+          index: 0
         }
       ],
-      "model": 'text-embedding-ada-002',
-      "usage": {
-        "prompt_tokens": 8,
-        "total_tokens": 8
+      model: 'text-embedding-ada-002',
+      usage: {
+        prompt_tokens: 8,
+        total_tokens: 8
       }
     }
   end

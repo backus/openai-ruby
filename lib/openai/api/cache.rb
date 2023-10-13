@@ -6,7 +6,7 @@ class OpenAI
       include Concord.new(:client, :cache)
 
       def get(route)
-        read_cache_or_apply(verb: :get, route: route) do
+        read_cache_or_apply(verb: :get, route:) do
           client.get(route)
         end
       end
@@ -18,13 +18,13 @@ class OpenAI
       end
 
       def post(route, **body)
-        read_cache_or_apply(verb: :post, route: route, body: body, format: :json) do
+        read_cache_or_apply(verb: :post, route:, body:, format: :json) do
           client.post(route, **body)
         end
       end
 
       def post_form_multipart(route, **body)
-        read_cache_or_apply(verb: :post, route: route, body: body, format: :form) do
+        read_cache_or_apply(verb: :post, route:, body:, format: :form) do
           client.post_form_multipart(route, **body)
         end
       end
@@ -49,11 +49,11 @@ class OpenAI
 
       def cache_target(verb:, route:, body: nil, format: nil)
         Target.new(
-          verb: verb,
+          verb:,
           api_key: client.api_key,
-          route: route,
-          body: body,
-          format: format
+          route:,
+          body:,
+          format:
         )
       end
 

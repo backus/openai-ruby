@@ -5,8 +5,9 @@ class OpenAI
     include Anima.new(:messages, :api_settings, :openai, :config)
     using Util::Colorize
 
-    def initialize(messages:, settings: {}, config: Config.create, **kwargs)
-      messages = messages.map do |msg|
+    def initialize(opts)
+      opts = { settings: {}.freeze, config: Config.create }.merge(opts)
+      messages = opts.fetch(:messages).map do |msg|
         if msg.is_a?(Hash)
           Message.new(msg)
         else
@@ -15,10 +16,10 @@ class OpenAI
       end
 
       super(
-        messages: messages,
-        api_settings: settings,
-        config: config,
-        **kwargs
+        messages:,
+        api_settings: opts.fetch(:settings),
+        config: opts.fetch(:config),
+        openai: opts.fetch(:openai)
       )
     end
 
@@ -90,7 +91,7 @@ class OpenAI
     end
 
     def add_message(role, content)
-      with_message(role: role, content: content)
+      with_message(role:, content:)
     end
 
     def with_message(message)

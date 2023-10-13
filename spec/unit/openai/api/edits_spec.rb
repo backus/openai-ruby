@@ -6,18 +6,18 @@ RSpec.describe OpenAI::API, '#edits' do
   let(:resource) { api.edits }
   let(:response_body) do
     {
-      "object": 'edit',
-      "created": 1_589_478_378,
-      "choices": [
+      object: 'edit',
+      created: 1_589_478_378,
+      choices: [
         {
-          "text": 'What day of the week is it?',
-          "index": 0
+          text: 'What day of the week is it?',
+          index: 0
         }
       ],
-      "usage": {
-        "prompt_tokens": 25,
-        "completion_tokens": 32,
-        "total_tokens": 57
+      usage: {
+        prompt_tokens: 25,
+        completion_tokens: 32,
+        total_tokens: 57
       }
     }
   end

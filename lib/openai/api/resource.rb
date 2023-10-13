@@ -31,7 +31,7 @@ class OpenAI
         chunk_response_type: full_response_type,
         **kwargs
       )
-        payload = kwargs.merge(stream: stream)
+        payload = kwargs.merge(stream:)
 
         raise 'Streaming responses require a block' if stream && !block_given?
         raise 'Non-streaming responses do not support blocks' if !stream && block_given?
@@ -54,7 +54,7 @@ class OpenAI
       def create(model:, **kwargs, &block)
         create_and_maybe_stream(
           '/v1/completions',
-          model: model,
+          model:,
           full_response_type: Response::Completion,
           **kwargs,
           &block
@@ -66,8 +66,8 @@ class OpenAI
       def create(model:, messages:, **kwargs, &block)
         create_and_maybe_stream(
           '/v1/chat/completions',
-          model: model,
-          messages: messages,
+          model:,
+          messages:,
           full_response_type: Response::ChatCompletion,
           chunk_response_type: Response::ChatCompletionChunk,
           **kwargs,
@@ -79,7 +79,7 @@ class OpenAI
     class Embedding < Resource
       def create(model:, input:, **kwargs)
         Response::Embedding.from_json(
-          post('/v1/embeddings', model: model, input: input, **kwargs)
+          post('/v1/embeddings', model:, input:, **kwargs)
         )
       end
     end
@@ -99,7 +99,7 @@ class OpenAI
     class Moderation < Resource
       def create(input:, model:)
         Response::Moderation.from_json(
-          post('/v1/moderations', input: input, model: model)
+          post('/v1/moderations', input:, model:)
         )
       end
     end
@@ -107,7 +107,7 @@ class OpenAI
     class Edit < Resource
       def create(model:, instruction:, **kwargs)
         Response::Edit.from_json(
-          post('/v1/edits', model: model, instruction: instruction, **kwargs)
+          post('/v1/edits', model:, instruction:, **kwargs)
         )
       end
     end
@@ -115,7 +115,7 @@ class OpenAI
     class File < Resource
       def create(file:, purpose:)
         Response::File.from_json(
-          post_form_multipart('/v1/files', file: form_file(file), purpose: purpose)
+          post_form_multipart('/v1/files', file: form_file(file), purpose:)
         )
       end
 
@@ -151,7 +151,7 @@ class OpenAI
 
       def create(training_file:, **kwargs)
         Response::FineTune.from_json(
-          post('/v1/fine-tunes', training_file: training_file, **kwargs)
+          post('/v1/fine-tunes', training_file:, **kwargs)
         )
       end
 
@@ -177,23 +177,20 @@ class OpenAI
     class Image < Resource
       def create(prompt:, **kwargs)
         Response::ImageGeneration.from_json(
-          post('/v1/images/generations', prompt: prompt, **kwargs)
+          post('/v1/images/generations', prompt:, **kwargs)
         )
       end
 
       def create_variation(image:, **kwargs)
         Response::ImageVariation.from_json(
-          post_form_multipart('/v1/images/variations', {
-                                image: form_file(image),
-                                **kwargs
-                              })
+          post_form_multipart('/v1/images/variations', image: form_file(image), **kwargs)
         )
       end
 
       def edit(image:, prompt:, mask: nil, **kwargs)
         params = {
           image: form_file(image),
-          prompt: prompt,
+          prompt:,
           **kwargs
         }
 
@@ -211,7 +208,7 @@ class OpenAI
           post_form_multipart(
             '/v1/audio/transcriptions',
             file: form_file(file),
-            model: model,
+            model:,
             **kwargs
           )
         )
@@ -222,7 +219,7 @@ class OpenAI
           post_form_multipart(
             '/v1/audio/translations',
             file: form_file(file),
-            model: model,
+            model:,
             **kwargs
           )
         )

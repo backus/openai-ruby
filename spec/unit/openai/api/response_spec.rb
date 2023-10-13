@@ -87,13 +87,13 @@ RSpec.describe OpenAI::API::Response do
 
     it 'defines a nice clean inspect method' do
       expect(sample_response.inspect).to eql(
-        '#<OpenAISpec::SampleResponse::Post '                           \
-          'created_at=1234 '                                            \
-          'text="This is a post" '                                      \
-          'comments=[] '                                                \
-          'author=#<OpenAISpec::SampleResponse::User username="carl"> ' \
-          'co_author=nil '                                              \
-          'subtitle=nil>'
+        '#<OpenAISpec::SampleResponse::Post ' \
+        'created_at=1234 ' \
+        'text="This is a post" ' \
+        'comments=[] ' \
+        'author=#<OpenAISpec::SampleResponse::User username="carl"> ' \
+        'co_author=nil ' \
+        'subtitle=nil>'
       )
     end
 

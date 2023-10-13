@@ -9,12 +9,12 @@ RSpec.describe OpenAI::API, '#files' do
   context 'when creating a file' do
     let(:response_body) do
       {
-        "id": 'file-XjGxS3KTG0uNmNOK362iJua3',
-        "object": 'file',
-        "bytes": 140,
-        "created_at": 1_613_779_121,
-        "filename": 'sample.jsonl',
-        "purpose": 'fine-tune'
+        id: 'file-XjGxS3KTG0uNmNOK362iJua3',
+        object: 'file',
+        bytes: 140,
+        created_at: 1_613_779_121,
+        filename: 'sample.jsonl',
+        purpose: 'fine-tune'
       }
     end
 
@@ -51,25 +51,25 @@ RSpec.describe OpenAI::API, '#files' do
   context 'when listing a file' do
     let(:response_body) do
       {
-        "data": [
+        data: [
           {
-            "id": 'file-ccdDZrC3iZVNiQVeEA6Z66wf',
-            "object": 'file',
-            "bytes": 175,
-            "created_at": 1_613_677_385,
-            "filename": 'train.jsonl',
-            "purpose": 'search'
+            id: 'file-ccdDZrC3iZVNiQVeEA6Z66wf',
+            object: 'file',
+            bytes: 175,
+            created_at: 1_613_677_385,
+            filename: 'train.jsonl',
+            purpose: 'search'
           },
           {
-            "id": 'file-XjGxS3KTG0uNmNOK362iJua3',
-            "object": 'file',
-            "bytes": 140,
-            "created_at": 1_613_779_121,
-            "filename": 'puppy.jsonl',
-            "purpose": 'search'
+            id: 'file-XjGxS3KTG0uNmNOK362iJua3',
+            object: 'file',
+            bytes: 140,
+            created_at: 1_613_779_121,
+            filename: 'puppy.jsonl',
+            purpose: 'search'
           }
         ],
-        "object": 'list'
+        object: 'list'
       }
     end
 
@@ -94,9 +94,9 @@ RSpec.describe OpenAI::API, '#files' do
   context 'when deleting a file' do
     let(:response_body) do
       {
-        "id": 'file-XjGxS3KTG0uNmNOK362iJua3',
-        "object": 'file',
-        "deleted": true
+        id: 'file-XjGxS3KTG0uNmNOK362iJua3',
+        object: 'file',
+        deleted: true
       }
     end
 
@@ -116,12 +116,12 @@ RSpec.describe OpenAI::API, '#files' do
   context 'when fetching a file' do
     let(:response_body) do
       {
-        "id": 'file-XjGxS3KTG0uNmNOK362iJua3',
-        "object": 'file',
-        "bytes": 140,
-        "created_at": 1_613_779_657,
-        "filename": 'mydata.jsonl',
-        "purpose": 'fine-tune'
+        id: 'file-XjGxS3KTG0uNmNOK362iJua3',
+        object: 'file',
+        bytes: 140,
+        created_at: 1_613_779_657,
+        filename: 'mydata.jsonl',
+        purpose: 'fine-tune'
       }
     end
 

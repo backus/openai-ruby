@@ -7,7 +7,7 @@ RSpec.describe OpenAI::Chat do
 
   describe 'initialization and adding messages' do
     it 'initializes with messages and adds user, system, and assistant messages' do
-      chat = OpenAI::Chat.new(messages: messages, settings: settings, openai: openai)
+      chat = OpenAI::Chat.new(messages:, settings:, openai:)
 
       expect(chat.messages.count).to eq(1)
       expect(chat.messages.first.role).to eq('user')

@@ -6,21 +6,21 @@ RSpec.describe OpenAI::API, '#fine_tunes' do
   let(:resource) { api.fine_tunes }
   let(:response_body) do
     {
-      "object": 'list',
-      "data": [
+      object: 'list',
+      data: [
         {
-          "id": 'ft-AF1WoRqd3aJAHsqc9NY7iL8F',
-          "object": 'fine-tune',
-          "model": 'curie',
-          "created_at": 1_614_807_352,
-          "fine_tuned_model": nil,
-          "hyperparams": {},
-          "organization_id": 'org-...',
-          "result_files": [],
-          "status": 'pending',
-          "validation_files": [],
-          "training_files": [{}],
-          "updated_at": 1_614_807_352
+          id: 'ft-AF1WoRqd3aJAHsqc9NY7iL8F',
+          object: 'fine-tune',
+          model: 'curie',
+          created_at: 1_614_807_352,
+          fine_tuned_model: nil,
+          hyperparams: {},
+          organization_id: 'org-...',
+          result_files: [],
+          status: 'pending',
+          validation_files: [],
+          training_files: [{}],
+          updated_at: 1_614_807_352
         },
         {},
         {}
@@ -62,40 +62,40 @@ RSpec.describe OpenAI::API, '#fine_tunes' do
   context 'when creating a fine-tune' do
     let(:response_body) do
       {
-        "id": 'ft-AF1WoRqd3aJAHsqc9NY7iL8F',
-        "object": 'fine-tune',
-        "model": 'curie',
-        "created_at": 1_614_807_352,
-        "events": [
+        id: 'ft-AF1WoRqd3aJAHsqc9NY7iL8F',
+        object: 'fine-tune',
+        model: 'curie',
+        created_at: 1_614_807_352,
+        events: [
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_352,
-            "level": 'info',
-            "message": 'Job enqueued. Waiting for jobs ahead to complete. Queue number: 0.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_352,
+            level: 'info',
+            message: 'Job enqueued. Waiting for jobs ahead to complete. Queue number: 0.'
           }
         ],
-        "fine_tuned_model": nil,
-        "hyperparams": {
-          "batch_size": 4,
-          "learning_rate_multiplier": 0.1,
-          "n_epochs": 4,
-          "prompt_loss_weight": 0.1
+        fine_tuned_model: nil,
+        hyperparams: {
+          batch_size: 4,
+          learning_rate_multiplier: 0.1,
+          n_epochs: 4,
+          prompt_loss_weight: 0.1
         },
-        "organization_id": 'org-...',
-        "result_files": [],
-        "status": 'pending',
-        "validation_files": [],
-        "training_files": [
+        organization_id: 'org-...',
+        result_files: [],
+        status: 'pending',
+        validation_files: [],
+        training_files: [
           {
-            "id": 'file-XGinujblHPwGLSztz8cPS8XY',
-            "object": 'file',
-            "bytes": 1_547_276,
-            "created_at": 1_610_062_281,
-            "filename": 'my-data-train.jsonl',
-            "purpose": 'fine-tune-train'
+            id: 'file-XGinujblHPwGLSztz8cPS8XY',
+            object: 'file',
+            bytes: 1_547_276,
+            created_at: 1_610_062_281,
+            filename: 'my-data-train.jsonl',
+            purpose: 'fine-tune-train'
           }
         ],
-        "updated_at": 1_614_807_352
+        updated_at: 1_614_807_352
       }
     end
 
@@ -135,73 +135,73 @@ RSpec.describe OpenAI::API, '#fine_tunes' do
   context 'when fetching a fine tune' do
     let(:response_body) do
       {
-        "id": 'ft-AF1WoRqd3aJAHsqc9NY7iL8F',
-        "object": 'fine-tune',
-        "model": 'curie',
-        "created_at": 1_614_807_352,
-        "events": [
+        id: 'ft-AF1WoRqd3aJAHsqc9NY7iL8F',
+        object: 'fine-tune',
+        model: 'curie',
+        created_at: 1_614_807_352,
+        events: [
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_352,
-            "level": 'info',
-            "message": 'Job enqueued. Waiting for jobs ahead to complete. Queue number: 0.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_352,
+            level: 'info',
+            message: 'Job enqueued. Waiting for jobs ahead to complete. Queue number: 0.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_356,
-            "level": 'info',
-            "message": 'Job started.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_356,
+            level: 'info',
+            message: 'Job started.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_861,
-            "level": 'info',
-            "message": 'Uploaded snapshot: curie:ft-acmeco-2021-03-03-21-44-20.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_861,
+            level: 'info',
+            message: 'Uploaded snapshot: curie:ft-acmeco-2021-03-03-21-44-20.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_864,
-            "level": 'info',
-            "message": 'Uploaded result files: file-QQm6ZpqdNwAaVC3aSz5sWwLT.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_864,
+            level: 'info',
+            message: 'Uploaded result files: file-QQm6ZpqdNwAaVC3aSz5sWwLT.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_864,
-            "level": 'info',
-            "message": 'Job succeeded.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_864,
+            level: 'info',
+            message: 'Job succeeded.'
           }
         ],
-        "fine_tuned_model": 'curie:ft-acmeco-2021-03-03-21-44-20',
-        "hyperparams": {
-          "batch_size": 4,
-          "learning_rate_multiplier": 0.1,
-          "n_epochs": 4,
-          "prompt_loss_weight": 0.1
+        fine_tuned_model: 'curie:ft-acmeco-2021-03-03-21-44-20',
+        hyperparams: {
+          batch_size: 4,
+          learning_rate_multiplier: 0.1,
+          n_epochs: 4,
+          prompt_loss_weight: 0.1
         },
-        "organization_id": 'org-...',
-        "result_files": [
+        organization_id: 'org-...',
+        result_files: [
           {
-            "id": 'file-QQm6ZpqdNwAaVC3aSz5sWwLT',
-            "object": 'file',
-            "bytes": 81_509,
-            "created_at": 1_614_807_863,
-            "filename": 'compiled_results.csv',
-            "purpose": 'fine-tune-results'
+            id: 'file-QQm6ZpqdNwAaVC3aSz5sWwLT',
+            object: 'file',
+            bytes: 81_509,
+            created_at: 1_614_807_863,
+            filename: 'compiled_results.csv',
+            purpose: 'fine-tune-results'
           }
         ],
-        "status": 'succeeded',
-        "validation_files": [],
-        "training_files": [
+        status: 'succeeded',
+        validation_files: [],
+        training_files: [
           {
-            "id": 'file-XGinujblHPwGLSztz8cPS8XY',
-            "object": 'file',
-            "bytes": 1_547_276,
-            "created_at": 1_610_062_281,
-            "filename": 'my-data-train.jsonl',
-            "purpose": 'fine-tune-train'
+            id: 'file-XGinujblHPwGLSztz8cPS8XY',
+            object: 'file',
+            bytes: 1_547_276,
+            created_at: 1_610_062_281,
+            filename: 'my-data-train.jsonl',
+            purpose: 'fine-tune-train'
           }
         ],
-        "updated_at": 1_614_807_865
+        updated_at: 1_614_807_865
       }
     end
 
@@ -246,8 +246,8 @@ RSpec.describe OpenAI::API, '#fine_tunes' do
   context 'when canceling a fine-tune' do
     let(:response_body) do
       {
-        "id": 'ft-xhrpBbvVUzYGo8oUO1FY4nI7',
-        "status": 'cancelled'
+        id: 'ft-xhrpBbvVUzYGo8oUO1FY4nI7',
+        status: 'cancelled'
       }
     end
 
@@ -266,37 +266,37 @@ RSpec.describe OpenAI::API, '#fine_tunes' do
   context 'when listing fine-tune events' do
     let(:response_body) do
       {
-        "object": 'list',
-        "data": [
+        object: 'list',
+        data: [
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_352,
-            "level": 'info',
-            "message": 'Job enqueued. Waiting for jobs ahead to complete. Queue number: 0.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_352,
+            level: 'info',
+            message: 'Job enqueued. Waiting for jobs ahead to complete. Queue number: 0.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_356,
-            "level": 'info',
-            "message": 'Job started.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_356,
+            level: 'info',
+            message: 'Job started.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_861,
-            "level": 'info',
-            "message": 'Uploaded snapshot: curie:ft-acmeco-2021-03-03-21-44-20.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_861,
+            level: 'info',
+            message: 'Uploaded snapshot: curie:ft-acmeco-2021-03-03-21-44-20.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_864,
-            "level": 'info',
-            "message": 'Uploaded result files: file-QQm6ZpqdNwAaVC3aSz5sWwLT.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_864,
+            level: 'info',
+            message: 'Uploaded result files: file-QQm6ZpqdNwAaVC3aSz5sWwLT.'
           },
           {
-            "object": 'fine-tune-event',
-            "created_at": 1_614_807_864,
-            "level": 'info',
-            "message": 'Job succeeded.'
+            object: 'fine-tune-event',
+            created_at: 1_614_807_864,
+            level: 'info',
+            message: 'Job succeeded.'
           }
         ]
       }

@@ -41,7 +41,7 @@ class OpenAI
         register_field(name)
 
         define_method(name) do
-          field(path, wrapper: wrapper)
+          field(path, wrapper:)
         end
       end
 
@@ -49,7 +49,7 @@ class OpenAI
         register_field(name)
 
         define_method(name) do
-          optional_field(path, wrapper: wrapper)
+          optional_field(path, wrapper:)
         end
       end
 

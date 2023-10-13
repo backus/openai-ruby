@@ -61,10 +61,10 @@ RSpec.describe OpenAI::API, '#models' do
   context 'when retrieving a model' do
     let(:response_body) do
       {
-        "id": 'text-davinci-002',
-        "object": 'model',
-        "owned_by": 'openai',
-        "permission": %w[
+        id: 'text-davinci-002',
+        object: 'model',
+        owned_by: 'openai',
+        permission: %w[
           query
           completions
           models:read

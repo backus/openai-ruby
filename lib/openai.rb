@@ -64,7 +64,7 @@ class OpenAI
   def chat(model:, history: [], **kwargs)
     Chat.new(
       openai: self,
-      settings: kwargs.merge(model: model),
+      settings: kwargs.merge(model:),
       messages: history
     )
   end

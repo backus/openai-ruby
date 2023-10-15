@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    openai.rb (0.0.6)
+    openai.rb (0.0.7)
       abstract_type (~> 0.0.7)
       anima (~> 0.3)
       concord (~> 0.1)
@@ -100,6 +100,8 @@ GEM
     ruby-progressbar (1.13.0)
     slop (4.10.1)
     thread_safe (0.3.6)
+    tiktoken_ruby (0.0.6)
+      rb_sys (~> 0.9.68)
     tiktoken_ruby (0.0.6-arm64-darwin)
     unf (0.1.4)
       unf_ext

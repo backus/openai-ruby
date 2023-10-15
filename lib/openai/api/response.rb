@@ -143,8 +143,21 @@ class OpenAI
       class ChatCompletion < Response
         class Choice < Response
           class Message < Response
+            class FunctionCall < Response
+              include Memoizable
+
+              field :name
+              field :arguments
+
+              def parsed_arguments
+                JSON.parse(arguments, symbolize_names: true)
+              end
+              memoize :parsed_arguments
+            end
+
             field :role
             field :content
+            field :function_call, wrapper: FunctionCall
           end
 
           field :index

@@ -16,4 +16,6 @@ openai = OpenAI.create(
   cache: cache_dir
 )
 
-Pry.start_without_pry_byebug(binding, quiet: true)
+binding.pry
+
+puts 'Bye'

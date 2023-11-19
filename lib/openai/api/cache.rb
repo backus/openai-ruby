@@ -29,6 +29,12 @@ class OpenAI
         end
       end
 
+      def raw_json_post(route, **body)
+        read_cache_or_apply(verb: :post, route:, body:, format: :json) do
+          client.raw_json_post(route, **body)
+        end
+      end
+
       def without_cache
         client
       end

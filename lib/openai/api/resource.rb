@@ -51,35 +51,35 @@ class OpenAI
     end
 
     class Completion < Resource
-      def create(model:, **kwargs, &block)
+      def create(model:, **, &block)
         create_and_maybe_stream(
           '/v1/completions',
           model:,
           full_response_type: Response::Completion,
-          **kwargs,
+          **,
           &block
         )
       end
     end
 
     class ChatCompletion < Resource
-      def create(model:, messages:, **kwargs, &block)
+      def create(model:, messages:, **, &block)
         create_and_maybe_stream(
           '/v1/chat/completions',
           model:,
           messages:,
           full_response_type: Response::ChatCompletion,
           chunk_response_type: Response::ChatCompletionChunk,
-          **kwargs,
+          **,
           &block
         )
       end
     end
 
     class Embedding < Resource
-      def create(model:, input:, **kwargs)
+      def create(model:, input:, **)
         Response::Embedding.from_json(
-          post('/v1/embeddings', model:, input:, **kwargs)
+          post('/v1/embeddings', model:, input:, **)
         )
       end
     end
@@ -105,9 +105,9 @@ class OpenAI
     end
 
     class Edit < Resource
-      def create(model:, instruction:, **kwargs)
+      def create(model:, instruction:, **)
         Response::Edit.from_json(
-          post('/v1/edits', model:, instruction:, **kwargs)
+          post('/v1/edits', model:, instruction:, **)
         )
       end
     end
@@ -149,9 +149,9 @@ class OpenAI
         )
       end
 
-      def create(training_file:, **kwargs)
+      def create(training_file:, **)
         Response::FineTune.from_json(
-          post('/v1/fine-tunes', training_file:, **kwargs)
+          post('/v1/fine-tunes', training_file:, **)
         )
       end
 
@@ -175,15 +175,15 @@ class OpenAI
     end
 
     class Image < Resource
-      def create(prompt:, **kwargs)
+      def create(prompt:, **)
         Response::ImageGeneration.from_json(
-          post('/v1/images/generations', prompt:, **kwargs)
+          post('/v1/images/generations', prompt:, **)
         )
       end
 
-      def create_variation(image:, **kwargs)
+      def create_variation(image:, **)
         Response::ImageVariation.from_json(
-          post_form_multipart('/v1/images/variations', image: form_file(image), **kwargs)
+          post_form_multipart('/v1/images/variations', image: form_file(image), **)
         )
       end
 
@@ -218,24 +218,24 @@ class OpenAI
         )
       end
 
-      def transcribe(file:, model:, **kwargs)
+      def transcribe(file:, model:, **)
         Response::Transcription.from_json(
           post_form_multipart(
             '/v1/audio/transcriptions',
             file: form_file(file),
             model:,
-            **kwargs
+            **
           )
         )
       end
 
-      def translate(file:, model:, **kwargs)
+      def translate(file:, model:, **)
         Response::Transcription.from_json(
           post_form_multipart(
             '/v1/audio/translations',
             file: form_file(file),
             model:,
-            **kwargs
+            **
           )
         )
       end

@@ -44,7 +44,7 @@ RSpec.describe OpenAI::API, '#files' do
       expect(file.created_at).to eql(1_613_779_121)
       expect(file.filename).to eql('sample.jsonl')
       expect(file.purpose).to eql('fine-tune')
-      expect(file.deleted?).to be(nil)
+      expect(file.deleted?).to be_nil
     end
   end
 

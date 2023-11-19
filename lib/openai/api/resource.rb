@@ -203,6 +203,21 @@ class OpenAI
     end
 
     class Audio < Resource
+      def speech(model:, input:, voice:, response_format: nil, **kwargs)
+        payload = { model:, input:, voice: }
+        payload[:response_format] = response_format if response_format
+        payload.merge!(kwargs)
+        response_format ||= 'mp3'
+
+        audio_binary =
+          client.raw_json_post('/v1/audio/speech', **payload)
+
+        Response::Speech.new(
+          format: response_format,
+          data: audio_binary
+        )
+      end
+
       def transcribe(file:, model:, **kwargs)
         Response::Transcription.from_json(
           post_form_multipart(

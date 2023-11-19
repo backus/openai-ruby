@@ -75,4 +75,42 @@ RSpec.describe OpenAI::API, '#audio' do
       expect(translation.text).to eql('Hello, my name is Wolfgang and I come from Germany. Where are you heading today?')
     end
   end
+
+  context 'when converting text to speech' do
+    let(:response) do
+      instance_double(
+        HTTP::Response,
+        status: HTTP::Response::Status.new(response_status_code),
+        body: mp3_binary
+      )
+    end
+
+    let(:mp3_binary) do
+      OpenAISpec::SPEC_ROOT.join('data/sample_french.mp3').binread
+    end
+
+    it 'can translate audio' do
+      tts = resource.speech(
+        model: 'tts-1',
+        input: 'Hello world',
+        voice: 'alloy',
+        speed: 1.5
+      )
+
+      expect(http)
+        .to have_received(:post)
+        .with(
+          'https://api.openai.com/v1/audio/speech',
+          json: {
+            model: 'tts-1',
+            input: 'Hello world',
+            voice: 'alloy',
+            speed: 1.5
+          }
+        )
+
+      expect(tts.format).to eql('mp3')
+      expect(tts.data).to eql(mp3_binary)
+    end
+  end
 end

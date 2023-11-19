@@ -392,6 +392,15 @@ class OpenAI
       class Transcription < Response
         field :text
       end
+
+      class Speech
+        include Anima.new(:format, :data)
+
+        def save(save_path)
+          save_path = Pathname(save_path)
+          save_path.binwrite(data)
+        end
+      end
     end
   end
 end
